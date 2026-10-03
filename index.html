@@ -1,166 +1,405 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>SachinCoderX — Premium 3D Batch Hub</title>
-    <link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
-    <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
-    <!-- Open Graph / Facebook -->
+    <meta
+      name="description"
+      content="Neev, Udaan, Uday, Parishram, Arjuna, Lakshay aur Yakeen 2027 — saare premium batches ek hi smooth, 60fps hub me. Search karo, favorite karo, ek code se unlock karo."
+    />
+    <meta name="author" content="SachinCoderX" />
+    <meta name="theme-color" content="#06070c" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href="./" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c5cff'/%3E%3Cstop offset='.55' stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23ff4d9d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Segoe UI,Arial,sans-serif' font-size='30' font-weight='800' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E"
+    />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://01a10209-9556-7347-8710-d2d9e500e195.arena.site/" />
     <meta property="og:title" content="SachinCoderX — Premium 3D Batch Hub" />
     <meta
       property="og:description"
-      content="Check out what I built in Arena's Code Arena - Content is user-generated and unverified"
+      content="Neev se Yakeen tak saare 2027 batches ek jagah — buttery smooth UI, favorites, search aur one-time access code."
     />
-    <meta property="og:image" content="https://screenshot-taker-prod.weichiang.workers.dev/message/01a10209-9556-7347-8710-d2d9e500e195/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="SachinCoderX" />
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://01a10209-9556-7347-8710-d2d9e500e195.arena.site/" />
-    <meta property="twitter:title" content="SachinCoderX — Premium 3D Batch Hub" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SachinCoderX — Premium 3D Batch Hub" />
     <meta
-      property="twitter:description"
-      content="Check out what I built in Arena's Code Arena - Content is user-generated and unverified"
+      name="twitter:description"
+      content="Neev se Yakeen tak saare 2027 batches ek jagah — buttery smooth UI, favorites, search aur one-time access code."
     />
-    <meta property="twitter:image" content="https://screenshot-taker-prod.weichiang.workers.dev/message/01a10209-9556-7347-8710-d2d9e500e195/og-image.png" />
+
+    <!-- Fonts: display swap + preconnect = zero layout block -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-    <style>
-      * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-html,
-body {
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-  display: flex;
-  flex-direction: column;
-  background: #f5f5f5;
-}
-
-/* Owner popup */
-.owner-popup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: white;
-  color: #151617;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 12px 18px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  animation: slideIn 0.3s ease-out;
-  will-change: transform, opacity;
-}
-
-@keyframes slideIn {
-  from { transform: translateY(100px) translateZ(0); opacity: 0; }
-  to { transform: translateY(0) translateZ(0); opacity: 1; }
-}
-
-.owner-popup.hide {
-  animation: slideOut 0.3s ease-out forwards;
-}
-
-@keyframes slideOut {
-  to { transform: translateY(100px) translateZ(0); opacity: 0; }
-}
-
-/* Iframe container styles */
-.iframe-container {
-  flex: 1;
-  position: relative;
-  background: white;
-  overflow: hidden;
-  min-height: 0;
-}
-
-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-    </style>
-  </head>
-  <body data-ryu-obtrusive-scrollbars="false">
-    <div class="owner-popup" id="owner-popup">Owner - SachinCoderX 👾</div>
-
-    <div class="iframe-container">
-      <iframe
-        id="preview-iframe"
-        src="https://01a10209-9556-7347-8710-d2d9e500e195.arena.site/?embed=true"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-popups allow-popups-to-escape-sandbox allow-downloads allow-top-navigation-by-user-activation"
-        allow="
-          accelerometer;
-          autoplay;
-          camera;
-          encrypted-media;
-          fullscreen;
-          geolocation;
-          gyroscope;
-          microphone;
-          midi;
-          clipboard-read;
-          clipboard-write;
-          usb;
-          vr;
-          xr-spatial-tracking;
-          screen-wake-lock;
-          magnetometer;
-          ambient-light-sensor;
-          battery;
-          gamepad;
-          picture-in-picture;
-          display-capture;
-          bluetooth;
-        "
-        referrerpolicy="origin-when-cross-origin"
-      ></iframe>
-    </div>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
     <script>
-      const iframe = document.getElementById("preview-iframe");
-      iframe.addEventListener("load", () => iframe.focus());
-
-      // Owner popup: 5 sec ke baad apne aap hat jayega
-      setTimeout(() => {
-        const popup = document.getElementById("owner-popup");
-        if (!popup) return;
-        popup.classList.add("hide");
-        setTimeout(() => popup.remove(), 300);
-      }, 5000);
+      /* Theme ko paint se pehle lagao — flash-of-wrong-theme (FOUC) zero. */
+      (function () {
+        try {
+          var saved = localStorage.getItem('scx:theme');
+          var pref = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          document.documentElement.dataset.theme = saved === 'light' || saved === 'dark' ? saved : pref;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
     </script>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"cfb6543e268d4ceb92c8170675caa481","r":1,"spa":2}' crossorigin="anonymous"></script>
-</body>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#batches">Batches par jao</a>
+
+    <!-- ambient background -->
+    <div class="bg" aria-hidden="true">
+      <div class="bg__blob bg__blob--1"></div>
+      <div class="bg__blob bg__blob--2"></div>
+      <div class="bg__blob bg__blob--3"></div>
+      <div class="bg__grid"></div>
+      <div class="bg__noise"></div>
+    </div>
+
+    <!-- icon sprite -->
+    <svg style="display: none" aria-hidden="true">
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.2-3.2" /></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.3A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7 2.7C19 15.6 12 20 12 20Z" /></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></symbol>
+      <symbol id="i-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5" /><path d="M8 10V7a4 4 0 0 1 7.5-2" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 6-6 6 6" /></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" /></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" /><circle cx="12" cy="12" r="3" /></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l18 18" /><path d="M10.6 6.1A9.7 9.7 0 0 1 12 6c6 0 9.5 6 9.5 6a17 17 0 0 1-3.3 3.9M6.3 8.1A16.7 16.7 0 0 0 2.5 12S6 18 12 18a9.6 9.6 0 0 0 3.4-.6" /></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z" /></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l7.5 3v6c0 4.6-3.1 8.3-7.5 9.6C7.6 20.3 4.5 16.6 4.5 12V6L12 3Z" /><path d="m9.2 12 2 2 3.6-3.8" /></symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3.5 13.7 9l5.5 1.7-5.5 1.7L12 18l-1.7-5.6L4.8 10.7 10.3 9 12 3.5Z" /><path d="M18.5 16.5 19.2 19l2.3.7-2.3.7-.7 2.3-.7-2.3-2.3-.7 2.3-.7.7-2.5Z" /></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="7" height="7" rx="2" /><rect x="13" y="4" width="7" height="7" rx="2" /><rect x="4" y="13" width="7" height="7" rx="2" /><rect x="13" y="13" width="7" height="7" rx="2" /></symbol>
+      <symbol id="i-rows" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="5" rx="2" /><rect x="4" y="14" width="16" height="5" rx="2" /></symbol>
+    </svg>
+
+    <!-- ================= NAV ================= -->
+    <header class="nav" id="nav">
+      <div class="wrap nav__inner">
+        <a class="brand" href="#top" aria-label="SachinCoderX home">
+          <span class="brand__mark"><span>S</span></span>
+          <span class="brand__text">Sachin<b>CoderX</b></span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a class="nav__link" href="#batches" data-nav="batches">Batches</a>
+          <a class="nav__link" href="#features" data-nav="features">Features</a>
+          <a class="nav__link" href="#how" data-nav="how">How it works</a>
+          <a class="nav__link" href="#faq" data-nav="faq">FAQ</a>
+        </nav>
+
+        <div class="nav__actions">
+          <button class="icon-btn hide-sm" id="btn-palette" type="button" title="Search (Ctrl/Cmd + K)" aria-label="Open search">
+            <svg aria-hidden="true"><use href="#i-search" /></svg>
+          </button>
+          <button class="icon-btn" id="btn-favs" type="button" title="My favorites" aria-label="My favorites" style="position: relative">
+            <svg aria-hidden="true"><use href="#i-heart" /></svg>
+            <span class="fav-count" id="fav-count" aria-hidden="true">0</span>
+          </button>
+          <button class="icon-btn" id="btn-theme" type="button" title="Toggle theme" aria-label="Toggle theme">
+            <svg class="icon-moon" aria-hidden="true"><use href="#i-moon" /></svg>
+            <svg class="icon-sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          </button>
+          <button class="btn btn--primary btn--sm" id="btn-unlock-nav" type="button">
+            <svg aria-hidden="true"><use href="#i-unlock" /></svg>
+            Unlock
+          </button>
+        </div>
+      </div>
+      <div class="progress" id="progress" aria-hidden="true"></div>
+    </header>
+
+    <main class="shell" id="top">
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="wrap hero__grid">
+          <div class="hero__copy">
+            <span class="pill fade-up" style="--i: 0">
+              <span class="pill__dot"></span>
+              Access Code Required · One-Time Unlock
+            </span>
+
+            <h1 class="lines">
+              <span class="line" style="--i: 0"><span>Welcome to the</span></span>
+              <span class="line" style="--i: 1"><span>Future of <em class="grad" style="font-style: normal">Learning</em></span></span>
+              <span class="line" style="--i: 2"><span>Premium Batch Collection 2027</span></span>
+            </h1>
+
+            <p class="hero__sub fade-up" style="--i: 3">
+              Neev · Udaan · Uday · Parishram · Arjuna · Lakshay · Yakeen aur bhi bahut kuch — sabhi
+              batches HD covers ke saath ek hi jagah. Search karo, favorite ❤️ karo, wo top par.
+            </p>
+
+            <div class="hero__cta fade-up" style="--i: 4">
+              <a class="btn btn--primary" href="#batches">
+                Browse All Batches
+                <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+              <button class="btn btn--ghost" id="btn-favs-hero" type="button">
+                <svg aria-hidden="true"><use href="#i-heart" /></svg>
+                My Favorites
+              </button>
+              <button class="btn btn--ghost" id="btn-unlock-hero" type="button">
+                <svg aria-hidden="true"><use href="#i-lock" /></svg>
+                Unlock with Code
+              </button>
+            </div>
+
+            <div class="stats" id="stats"></div>
+          </div>
+
+          <div class="hero__stage" id="hero-stage" aria-hidden="true">
+            <div class="hero__orb"></div>
+            <div class="float-card float-card--a" data-depth="0.05">
+              <div class="float-card__t">Arjuna JEE 2027</div>
+              <div class="float-card__m"><span class="float-card__chip">⚡ 2027</span><span class="float-card__chip">🎥 Live + Recorded</span></div>
+            </div>
+            <div class="float-card float-card--b" data-depth="0.09">
+              <div class="float-card__t">Uday 2.0 2027</div>
+              <div class="float-card__m"><span class="float-card__chip">Class 11-12</span><span class="float-card__chip">PCM</span></div>
+            </div>
+            <div class="float-card float-card--c" data-depth="0.14">
+              <div class="float-card__t">Yakeen NEET 2.0</div>
+              <div class="float-card__m"><span class="float-card__chip">NEET</span><span class="float-card__chip">PCB</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= MARQUEE ================= -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track" id="marquee"></div>
+      </div>
+
+      <!-- ================= BATCHES ================= -->
+      <section class="section" id="batches" style="padding-top: clamp(46px, 6vw, 76px)">
+        <div class="wrap">
+          <div class="head reveal">
+            <span class="head__eyebrow">Library</span>
+            <h2>All Batches <span id="batch-total" style="color: var(--text-3)"></span></h2>
+            <p>Filter category se lagao ya search me batch ka naam likho — list turant update hoti hai, page reload nahi hota.</p>
+          </div>
+
+          <div class="toolbar reveal" role="search">
+            <div class="toolbar__row">
+              <div class="search">
+                <svg aria-hidden="true"><use href="#i-search" /></svg>
+                <label class="sr-only" for="q">Batch search karo</label>
+                <input id="q" type="search" placeholder="Search batch… e.g. Arjuna, NEET, Uday" autocomplete="off" spellcheck="false" />
+                <button class="search__clear" id="q-clear" type="button" aria-label="Clear search">
+                  <svg style="width: 13px; height: 13px" aria-hidden="true"><use href="#i-x" /></svg>
+                </button>
+                <span class="search__hint kbd" id="q-hint">⌘K</span>
+              </div>
+
+              <div class="select">
+                <label class="sr-only" for="sort">Sort karo</label>
+                <select id="sort">
+                  <option value="pop">Most popular</option>
+                  <option value="az">Name A → Z</option>
+                  <option value="za">Name Z → A</option>
+                  <option value="new">Newest first</option>
+                </select>
+                <svg aria-hidden="true"><use href="#i-chev" /></svg>
+              </div>
+
+              <button class="toggle" id="btn-fav-only" type="button" aria-pressed="false">
+                <svg aria-hidden="true"><use href="#i-heart" /></svg>
+                Favorites
+              </button>
+
+              <button class="toggle" id="btn-view" type="button" aria-pressed="false" title="Toggle grid / list view">
+                <svg aria-hidden="true"><use href="#i-rows" /></svg>
+                <span id="view-label">List</span>
+              </button>
+            </div>
+
+            <div class="chips" id="chips" role="tablist" aria-label="Batch categories"></div>
+          </div>
+
+          <div class="result-bar">
+            <span><b id="res-count">0</b> batches</span>
+            <span class="sep"></span>
+            <span id="res-filter">All categories</span>
+            <button class="reset" id="res-reset" type="button" hidden>Reset filters</button>
+          </div>
+
+          <div class="grid" id="grid" data-view="grid"></div>
+
+          <div class="empty" id="empty">
+            <div class="empty__emoji">🔍</div>
+            <h3>Kuch nahi mila</h3>
+            <p>Is filter se koi batch match nahi hua. Thoda broad search try karo.</p>
+            <button class="btn btn--ghost btn--sm" id="empty-reset" type="button">Saare batches dikhao</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FEATURES ================= -->
+      <section class="section" id="features">
+        <div class="wrap">
+          <div class="head head--center reveal">
+            <span class="head__eyebrow">Kyun alag hai</span>
+            <h2>Chhoti cheezein, bada farq</h2>
+            <p>Ye hub sirf sundar nahi — andar se bhi tez hai. Koi heavy framework nahi, sirf clean code.</p>
+          </div>
+          <div class="features" id="features-grid"></div>
+        </div>
+      </section>
+
+      <!-- ================= HOW IT WORKS ================= -->
+      <section class="section" id="how" style="padding-top: 0">
+        <div class="wrap">
+          <div class="head head--center reveal">
+            <span class="head__eyebrow">3 steps</span>
+            <h2>Kaise kaam karta hai</h2>
+          </div>
+          <div class="steps" id="steps"></div>
+
+          <div class="cta reveal">
+            <h2>Code hai? Toh der kis baat ki.</h2>
+            <p>Ek baar unlock karo aur poori 2027 library hamesha ke liye khul jayegi.</p>
+            <div class="cta__row">
+              <button class="btn btn--primary" id="btn-unlock-cta" type="button">
+                <svg aria-hidden="true"><use href="#i-unlock" /></svg>
+                Unlock with Code
+              </button>
+              <button class="btn btn--ghost" id="btn-favs-cta" type="button">
+                <svg aria-hidden="true"><use href="#i-heart" /></svg>
+                Browse Favorites
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section class="section" id="faq" style="padding-top: 0">
+        <div class="wrap">
+          <div class="head head--center reveal">
+            <span class="head__eyebrow">FAQ</span>
+            <h2>Aksar puchhe jaane wale sawal</h2>
+          </div>
+          <div class="faq" id="faq-list"></div>
+        </div>
+      </section>
+
+      <!-- ================= FOOTER ================= -->
+      <footer class="footer">
+        <div class="wrap footer__grid">
+          <div>
+            <a class="brand" href="#top">
+              <span class="brand__mark"><span>S</span></span>
+              <span class="brand__text">Sachin<b>CoderX</b></span>
+            </a>
+            <p class="footer__note">© <span id="year">2026</span> SachinCoderX — Premium 3D Batch Hub. Built for students, tuned for 60fps.</p>
+          </div>
+          <nav class="footer__links" aria-label="Footer">
+            <a href="#batches">Batches</a>
+            <a href="#features">Features</a>
+            <a href="#how">How it works</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+          <span class="footer__heart">Owner — SachinCoderX 👾</span>
+        </div>
+      </footer>
+    </main>
+
+    <!-- ================= UNLOCK MODAL ================= -->
+    <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal__scrim" data-close></div>
+      <div class="modal__panel" role="document">
+        <button class="icon-btn modal__close" type="button" data-close aria-label="Close">
+          <svg aria-hidden="true"><use href="#i-x" /></svg>
+        </button>
+
+        <div id="modal-form-view">
+          <span class="modal__eyebrow">One-Time Unlock</span>
+          <h3 id="modal-title">Access code daaliye</h3>
+          <p class="modal__desc">Code ek hi baar chahiye. Uske baad aapke device par unlock state save ho jati hai.</p>
+          <div class="modal__target" id="modal-target">Poora library · 23 batches</div>
+
+          <form id="unlock-form" novalidate>
+            <div class="field">
+              <label class="sr-only" for="code">Access code</label>
+              <input id="code" type="password" inputmode="text" autocomplete="off" spellcheck="false" placeholder="••••••••" maxlength="24" />
+              <button class="field__eye" id="code-eye" type="button" aria-label="Show code">
+                <svg aria-hidden="true"><use href="#i-eye" /></svg>
+              </button>
+            </div>
+            <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+            <button class="btn btn--primary btn--block" type="submit">
+              <svg aria-hidden="true"><use href="#i-unlock" /></svg>
+              Unlock
+            </button>
+          </form>
+          <p class="modal__hint">Code nahi hai? Owner <b id="modal-owner">@SachinCoderX</b> se maang lijiye.</p>
+        </div>
+
+        <div id="modal-done-view" hidden>
+          <div class="modal__done">
+            <div class="tick"><svg aria-hidden="true"><use href="#i-check" /></svg></div>
+            <h3 id="done-title">Unlock ho gaya 🎉</h3>
+            <p class="modal__desc" id="done-desc">Ab har batch card par access ready hai.</p>
+            <button class="btn btn--primary btn--block" data-close type="button" style="margin-top: 18px">Chalo batches dekhte hain</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= COMMAND PALETTE ================= -->
+    <div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Quick search">
+      <div class="palette__panel">
+        <div class="palette__input">
+          <svg aria-hidden="true"><use href="#i-search" /></svg>
+          <label class="sr-only" for="palette-q">Quick search</label>
+          <input id="palette-q" type="text" placeholder="Batch ya action search karo…" autocomplete="off" spellcheck="false" />
+          <span class="kbd">Esc</span>
+        </div>
+        <div class="palette__list" id="palette-list" role="listbox"></div>
+        <div class="palette__foot">
+          <span><span class="kbd">↑</span> <span class="kbd">↓</span> navigate</span>
+          <span><span class="kbd">↵</span> select</span>
+          <span><span class="kbd">Esc</span> close</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- floating bits -->
+    <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+    <div class="owner-chip" id="owner-chip">
+      <i>S</i> Owner — SachinCoderX 👾
+    </div>
+
+    <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+      <svg class="to-top__ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="bg-c" cx="24" cy="24" r="23" />
+        <circle class="fg-c" id="to-top-ring" cx="24" cy="24" r="23" />
+      </svg>
+      <svg aria-hidden="true"><use href="#i-up" /></svg>
+    </button>
+
+    <script src="assets/js/data.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+  </body>
 </html>
